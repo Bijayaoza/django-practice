@@ -1,0 +1,35 @@
+
+{% extends "practice/base.html"  %}
+{% block content %}
+    <h1>
+        {% if stu %}
+        <h2> the data is </h2>
+        <p> the data is</p>
+        
+        <table>
+            
+            <tr>
+                <th>id</th>
+                <th>std id</th>
+                <th>std name</th>
+                <th>emai</th>
+            </tr>
+            {% for i in stu %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.stuid}}</td>
+                <td>{{i.stName}}</td>
+                <td>{{i.stEmail}}</td>
+
+
+            </tr>
+            {% endfor %}
+        </table>
+        
+        {% else %}
+        <h3>no data is available</h3>
+        {% endif %}
+
+    </h1>
+    
+{% endblock %}

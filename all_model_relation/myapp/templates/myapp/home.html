@@ -1,0 +1,27 @@
+{% extends 'myapp/body.html' %}
+
+
+{% block styles %}
+<style>
+    body{
+        margin:50px;
+    }
+    a{
+        padding:10px;
+        margin:20px;
+        background-color: red;
+        color:white;
+        
+    }    
+</style>
+{% endblock %}
+
+
+{% block content%}
+<a href="{% url 'user' %}">User</a>
+<a href="{% url 'page' %}">Page</a>
+<a href="{% url 'post' %}">Post</a>
+<a href="{% url 'song' %}">Song</a>
+
+
+{% endblock%}

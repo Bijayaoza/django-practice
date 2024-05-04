@@ -1,0 +1,61 @@
+{% extends 'app1/base.html' %} {% block content %}
+<div class="row">
+  <div class="col-sm-4">
+    <h1 class="text-center alert alert-info">hello</h1>
+    <form method="POST">
+      {% csrf_token %}
+
+      <div>{{f.as_p}}</div>
+
+      <input type="submit" value="add" />
+      {% if  messages %}
+       {% for message in messages %}
+        {{message}}
+       {% endfor %}
+      {% endif %}
+    </form>
+  </div>
+
+  <div class="col-sm-7 offset-1">
+    <h4 class="text-center alert alert-info">show std information</h4>
+    {% if stu%}
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">email</th>
+            <th scope="col">password</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for st in stu %}
+          <tr>
+            <th scope="row">{{st.id}}</th>
+            <td>{{st.name}}</td>
+            <td>{{st.email}}</td>
+            <td>{{st.password}}</td>
+            <td>
+                <form action="{% url 'myapp-update' st.id %}" method="POST" class="d-inline"> {% csrf_token %}
+                    <input type="submit" class="btn btn-warning btn-sm" value="Edit">
+                </form>
+                <form action="{% url 'myapp-delete' st.id %}" method="POST" class="d-inline"> {% csrf_token %}
+                    <input type="submit" class="btn btn-danger btn-sm" value="delete">
+                </form>
+                
+                
+
+            </td>
+          </tr>
+          {% endfor %}
+          
+    
+        </tbody>
+      </table>
+    {% else %}
+    <h4 class="text-center alert alert-warning">no data is found</h4>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

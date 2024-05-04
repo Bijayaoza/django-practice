@@ -1,0 +1,22 @@
+{% extends 'practice/base.html'%}
+
+
+
+{% block content %}
+
+<form  method="POST">{% csrf_token %}
+
+    {%if csf %}
+    {{csf}}
+    {% else %}
+    {{cs.as_p}}
+    <input type="submit" value="submit" />
+
+    {% endif %}
+
+</form>
+{% endblock  %}
+
+
+
+

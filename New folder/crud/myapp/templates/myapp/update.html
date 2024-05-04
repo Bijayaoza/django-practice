@@ -1,0 +1,39 @@
+{% extends "myapp/body.html" %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4">
+      <h1 class="text-center alert alert-info">update std information</h1>
+      <form action="" method="POST">
+        {% csrf_token %}
+        
+          {{form.as_p}}
+        <input type="submit" class="btn btn-success" value="update" />
+      </form>
+    </div>
+  </div>
+{% if messages %}
+  {% for message in messages %}
+    <span {% if message.tags %} class="{{message.tags}}" {% endif %} >
+
+      {{message}}
+
+    </span>
+  {% endfor %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+            alert("Updated successfully!");
+    });    
+    setTimeout(function() {
+                    window.location.href = "/";  // Redirect to the desired URL
+                }, 500);  
+    
+  </script>
+
+{% endif %}
+
+
+
+{% endblock content %}

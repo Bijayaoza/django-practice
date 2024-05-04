@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}" />
+    
+
+    {% block head %}{% endblock head %}
+  </head>
+  <body>
+    
+    <div class="container  mt-5">
+        <h2 class="text-center alert alert-danger">
+            Function Base View
+        </h2>
+        {% block content%}
+        {% endblock content %}
+        
+
+    </div>
+
+        <script src="{% static 'myapp/js/jquery.js' %}"></script>
+    <script src="{% static 'myapp/js/popper.js' %}"></script>
+    <script src="{% static 'myapp/js/bootstrap.js' %}"></script>
+
+  </body>
+</html>

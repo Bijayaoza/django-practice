@@ -1,0 +1,14 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="row">
+  <div class="col-sm-4">
+    <h1 class="text-center alert alert-info">update std information</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+
+        {{form.as_p}}
+      <input type="submit" class="btn btn-success" value="update" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}
